@@ -1,0 +1,44 @@
+<head>
+  <title>semantic-test</title>
+</head>
+
+<body>
+  {{> nodeEditor}}
+</body>
+
+<template name="nodeEditor">
+  
+<div id="container">
+
+	{{#each nodes}}
+		{{> node}}
+	{{/each}}
+
+	<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" version="1.1">
+		{{#each links}}
+			{{> link}}
+		{{/each}}
+	</svg>
+</div>
+
+</template>
+
+<template name="node">
+	<div class="node">
+		<span>{{id}}</span>
+		<div class="prevNodeSocket"></div>
+		<div class="nextNodeSocket"></div>
+		{{sockets}}
+		{{x}},{{y}}
+	</div>
+</template>
+
+<template name="link">
+	
+		<path d="{{path}}"
+	        fill="none" stroke="red" stroke-width="5"  />
+
+<!-- 	<path d="{{controlPath}}"
+        fill="none" stroke="#888888" stroke-width="1" /> -->
+
+</template>
